@@ -1,0 +1,32 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+	min-width: 300px;
+	min-height: 150px;
+	title: "My First Slint App";
+	icon : @image-url("../assets/img/rust-icon-2048x2047-5s6wkmk1.png");
+  in-out property <int> counter: 42;
+  callback request-increase-value();
+  callback request-decrease-value();
+  Rectangle {
+    VerticalBox {
+      Button {					
+        text: "Decrease value";
+        clicked => {
+          root.request-decrease-value();
+        }
+      }
+      Text {
+        vertical-alignment: center;
+        horizontal-alignment: center;
+        text: "Counter Value: \{root.counter}";
+      }
+      Button {
+        text: "Increase value";
+        clicked => {
+          root.request-increase-value();
+        }
+      }
+    }
+  }
+}
