@@ -6,16 +6,22 @@ Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêt�
  => https://slint.rs/
 
  => https://slint.dev/ 
- 
+
  => https://docs.slint.dev
 
 Non pas que les 2 premières (Equi et iced) ne soient pas de qualité, elles permettent elles aussi de réaliser de très bonnes IHM, mais l'approche de Slint est celle qui m'a paru la plus claire, et Iced manque cruellement de documentation.
 L'approche de Slint pourrait être assez comparable au QML du framework Qt, avec aussi pas mal de widgets directement utilisables.
 Elle présente l'avantage d'une excellente séparation entre l'IHM et le code 'loqique'.
 
-Voici un 1er exemple de code pour réaliser une IHM avec Slint, dérivé du template que Slint fourni pour démarrer 'en douceur'.
 
-Ce template / projet 'de base' contient le minimum pour obtenir quelque chose de fonctionnel :
+# Le projet
+
+Voici un 1er exemple de code pour réaliser une IHM toute simple avec Slint. Il est issu du template que Slint fourni pour démarrer 'en douceur'. Cette application contient un label qui affiche la valeur d'un compteur, et 2 boutons permettant d'incrémenter ou de décrémenter ce compteur.
+<p align="center">
+  <img width="300" src="/01_Introducing_Slint.png">
+</p>
+
+Ce  projet 'de base' contient le minimum pour obtenir quelque chose de fonctionnel :
  - un fichier Cargo.toml qui contient les dépendances requises.
  - un fichier build.rs qui dans sa fonction main() contient les instructions de compilation du fichier slint pour qu'il soit intégré au binaire de l'application.
  - côté main.rs, on devra placer la ligne ```slint::include_modules!();``` au début du fichier pour indiquer à cargo d'utiliser le fichier build.rs pour compiler
@@ -74,7 +80,7 @@ Le plugin "Slint" permet aussi d'obtenir une preview de l'IHM en cours, très ut
     let config = slint_build::CompilerConfiguration::new().with_style("fluent-dark".into());
     slint_build::compile_with_config("ui/app-window.slint", config).unwrap();
       ```
-    
+   
 ## Fichier main.rs :
   - ce fichier contient le code principal de l'application.    
   - il contient l'import ``std::error::Error`` nécessaire à la gestion d'erreur possiblement renvoyée en sortie de la fonction main() ```(Box<dyn Error>)```
@@ -92,7 +98,7 @@ Le plugin "Slint" permet aussi d'obtenir une preview de l'IHM en cours, très ut
     ```
 	ui.on_request_increase_value({...});
 	ui.on_request_decrease_value({...});
-     ```
+    ```
 
   - on appelle ensuite la méthode run() de l'application fenêtrée : ```ui.run()?;```   
   - enfin on retourne ```Ok(())```, car main() doit retourner quelque chose de type Result<>
