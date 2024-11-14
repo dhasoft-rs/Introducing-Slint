@@ -1,7 +1,7 @@
 # TFRT 01 - Présentation de Slint
 
 Il existe bon nombre de solutions / librairies différentes pour créer des IHM avec Rust. (Voir ici => https://areweguiyet.com/).
-Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêté sur Slint. Les principaux liens sont les suivants :
+Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêté sur Slint, dont les principaux liens sont les suivants :
 
  => https://slint.rs/
 
@@ -9,14 +9,15 @@ Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêt�
 
  => https://docs.slint.dev
 
-Non pas que les 2 premières (Equi et iced) ne soient pas de qualité, elles permettent elles aussi de réaliser de très bonnes IHM, mais l'approche de Slint est celle qui m'a paru la plus claire, et Iced manque cruellement de documentation.
+Non pas que les 2 premières librairies (Equi et iced) ne soient pas de qualité, elles permettent elles aussi de réaliser de très bonnes IHM, mais l'approche de Slint est celle qui m'a paru la plus claire, et Iced manque cruellement de documentation.
 L'approche de Slint pourrait être assez comparable au QML du framework Qt, avec aussi pas mal de widgets directement utilisables.
 Elle présente l'avantage d'une excellente séparation entre l'IHM et le code 'loqique'.
+Une autre raison à la naissance de ce projet est qu'on trouve assez peu de documentation en français concernant la librairie Slint. 
 
 
 # Le projet
 
-Voici un 1er exemple de code pour réaliser une IHM toute simple avec Slint. Il est issu du template que Slint fourni pour démarrer 'en douceur'. Cette application contient un label qui affiche la valeur d'un compteur, et 2 boutons permettant d'incrémenter ou de décrémenter ce compteur.
+Voici un 1er exemple de code pour réaliser une IHM toute simple avec Slint. Il est issu du template que Slint fournit pour démarrer 'en douceur'. Cette application contient un label qui affiche la valeur d'un compteur, et 2 boutons permettant d'incrémenter ou de décrémenter ce compteur.
 <p align="center">
   <img width="300" src="/01_Introducing_Slint.png">
 </p>
@@ -38,17 +39,17 @@ Le plugin "Slint" permet aussi d'obtenir une preview de l'IHM en cours, très ut
 # Détails / description des fichiers 
 
 ## Fichier app-window.slint :
- - la ligne 'import...' contient les imports nécessaires, selon les widgets utilisés.
+ - la ligne ```import...``` contient les imports nécessaires, selon les widgets utilisés.
  - le mot-clé export de la ligne ```export component AppWindow inherits Window``` permet au reste de l'application d'accéder au composant AppWindow (de type
    'Window').
- - on définit la taille min de la fenêtre avec 'min-width' et 'min-height'. Attention, on doit spécifier l'unité à utiliser (généralement px, pixels logiques,
+ - on définit la taille min de la fenêtre avec ```min-width :``` et ```min-height :```. Attention, on doit spécifier l'unité à utiliser (généralement px, pixels logiques,
    mais il existe aussi les pixels physiques, notés phx).
  - pour les positionnements et dimensionnements, voir => https://docs.slint.dev/latest/docs/slint/src/language/concepts/layouting).
  - on définit le titre et l'image de l'application avec les propriétés 'title' et 'icon'.
- - la ligne 'in-out property <int> counter: 42;' définit la variable counter comme étant accessible en écriture (partie 'in', appel à set_counter() dans le
-   fichier main.rs) et en lecture (partie 'out', appel à get_counter() dans le fichier main.rs) par l'utilisateur du composant.
- - les lignes 'callback' déclarent l'existence de fonctions dont le corps devra être renseigné dans la partie utilisateur du composant (ici, dans le fichier
-   main.rs).
+ - la ligne ```in-out property <int> counter: 42;``` définit la variable counter comme étant accessible en écriture (partie 'in', appel à ```set_counter()```
+   dans le fichier main.rs) et en lecture (partie 'out', appel à ```get_counter()``` dans le fichier main.rs) par l'utilisateur du composant.
+ - les lignes ```callback...``` déclarent l'existence de fonctions dont le corps devra être renseigné dans la partie utilisateur du composant (ici, dans le
+   fichier main.rs).
  - ces fonctions 'callback' sont appelées à partir d'actions sur les widgets dans le fichier '.slint'. Elles sont ici appelées sur l'évènement 'clicked' des
    boutons 'Decrease value' et 'Increase value'.
  - le widget de type 'Text' affiche la valeur de la variable 'counter' mis à jour par les appels aux fonctions ```request-increase-value()``` et ```request-
