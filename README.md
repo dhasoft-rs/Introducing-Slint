@@ -1,6 +1,6 @@
 # TFRT 01 - Présentation de Slint
 
-	_For english version of this document, see README.md.en file_
+   _For english version of this document, see README.md.en file_
 
 Il existe bon nombre de solutions / librairies différentes pour créer des IHM avec Rust. (Voir ici => https://areweguiyet.com/).
 Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêté sur Slint, dont les principaux liens sont les suivants :
@@ -94,7 +94,9 @@ Le plugin "Slint" permet aussi d'obtenir une preview de l'IHM en cours, très ut
     nécessaire à l'utilisation du fichier build.rs
     
   - il contient enfin une unique fonction main() qui va commencer par créer notre fenêtre d'application :
-    ```let ui = AppWindow::new()?;```
+    ```
+    let ui = AppWindow::new()?;
+    ```
     
   - si l'application est correctement créée (pas de sortie en erreur), on définit alors le contenu des méthodes de callback qui ont été déclarées dans les lignes
     'callback' du fichier '.slint' :
