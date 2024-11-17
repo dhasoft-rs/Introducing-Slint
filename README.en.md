@@ -1,10 +1,11 @@
 # TFRT 01 - Introducing Slint
 
-There are a lot of libraries for creating GUIs with Rust (see here => https://areweguiyet.com/).
+There are a lot of libraries for creating GUIs with Rust (see here => https://areweguiyet.com/). After a short try with Egui, then Iced, my choice fell on Slint, whose main links are as follows:
 
-After a short try with Egui, then Iced, my choice fell on Slint, whose main links are as follows:
  => https://slint.rs/
+
  => https://slint.dev/ 
+
  => https://docs.slint.dev
 
 Equi and Iced are nice libraries, but Slint's approach was the clearest to me, and Iced is sorely lacking of documentation.
@@ -15,8 +16,9 @@ I first created this project to share this new knowledge, as there is not so muc
 # The project
 
 Here's a 1st example of code to create a simple GUI with Slint. It comes from the template provided by Slint to get things off to a good start. This application contains a label displaying the value of a counter, and 2 buttons for incrementing or decrementing the counter.
-<p align=“center”>
-  <img width=“300” src=“/01_Introducing_Slint.png”>
+
+<p align="center">
+  <img width="300" src="/01_Introducing_Slint.png">
 </p>
 
 This 'basic' project contains the minimum required to obtain something that works:
@@ -66,9 +68,9 @@ The “Slint” plugin also provides a preview of the current GUI, very useful w
    
       The styles available here are: https://docs.slint.dev/latest/docs/slint/src/advanced/style
       The commands to be applied are (for the 'fluent-dark' style) :
-			      ``` 
-    let config = slint_build::CompilerConfiguration::new().with_style(“fluent-dark”.into());
-    slint_build::compile_with_config(“ui/app-window.slint”, config).unwrap();
+      ```
+    let config = slint_build::CompilerConfiguration::new().with_style("fluent-dark".into());
+    slint_build::compile_with_config("ui/app-window.slint", config).unwrap();
       ```
    
 ## main.rs file :
@@ -83,14 +85,15 @@ The “Slint” plugin also provides a preview of the current GUI, very useful w
   - finally, it contains a single main() function which will begin by creating our application window:
     let ui = AppWindow::new()?;````
     
-  - if the application is correctly created (no error output), we then define the contents of the callback methods that have been declared in lines
-    callback' lines in the '.slint' file:
+  - if the application is correctly created (no error output), we then define the contents of the callback methods that have been declared in 'callback' lines
+    in the '.slint' file:
     ```
-  ui.on_request_increase_value({...});
-  ui.on_request_decrease_value({...});
+	ui.on_request_increase_value({...});
+	ui.on_request_decrease_value({...});
     ```
+
   - then call the windowed application's run() method: ``ui.run()?   
-  - finally, we return ```Ok(())```, as main() must return something of type Result<>.
+  - finally, we return ```Ok(())```, as main() must return a Result<>.
 
 
 So, that's all for this first Topic, hope it helps ...
