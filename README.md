@@ -1,6 +1,6 @@
 # TFRT 01 - Présentation de Slint
 
-   _For english version of this document, see README.md.en file_
+   _For english version of this document, see README.en.md file_
 
 Il existe bon nombre de solutions / librairies différentes pour créer des IHM avec Rust. (Voir ici => https://areweguiyet.com/).
 Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêté sur Slint, dont les principaux liens sont les suivants :
