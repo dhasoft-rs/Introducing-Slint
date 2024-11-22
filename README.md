@@ -11,10 +11,10 @@ Après avoir (très rapidement) essayé Egui, puis Iced, mon choix s'est arrêt�
 
  => https://docs.slint.dev
 
-Non pas que les 2 premières librairies (Equi et Iced) ne soient pas de qualité, elles permettent elles aussi de réaliser de très bonnes IHM, mais l'approche de Slint est celle qui m'a paru la plus claire, et Iced manque cruellement de documentation.
+Non pas que les 2 premières librairies (Equi et Iced) ne soient pas de qualité, elles permettent elles aussi de réaliser de très bonnes IHM... mais l'approche de Slint est celle qui m'a paru la plus claire et Iced manque cruellement de documentation.
 L'approche de Slint pourrait être assez comparable au QML du framework Qt, avec aussi pas mal de widgets directement utilisables.
-Elle présente l'avantage d'une excellente séparation entre l'IHM et le code 'loqique'.
-Une autre raison à la naissance de ce projet est qu'on trouve assez peu de documentation en français concernant la librairie Slint. 
+Slint présente aussi l'avantage d'une excellente séparation entre l'IHM et le code 'loqique'.
+Une des principales raisons à la naissance de ce projet est qu'on trouve assez peu de documentation en français concernant la librairie Slint. 
 
 
 # Le projet
